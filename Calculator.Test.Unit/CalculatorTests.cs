@@ -33,7 +33,7 @@ namespace Calculator.Unit.Test
 
 		[TestCase(-4, 2, -8)]
 		[TestCase(5, -5, -25)]
-		[TestCase(-75, 25, -10)]
+		[TestCase(-75, 25, -1875)]
 		[TestCase(-15, 75, -1125)]
 		public void Multiply_MultiplyTwoNumbersBothPosAndNeg_ReturnsCorrect(double a, double b, double result)
 		{
