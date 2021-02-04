@@ -14,6 +14,7 @@ namespace Calculator.Unit.Test
 		[TestCase(2, 4, 6)]
 		[TestCase(-25, 55, 30)]
 		[TestCase(5, -5, 0)]
+        [TestCase(5, 5, 10)]
 		[TestCase(15, -5, 10)]
 		public void Add_AddTwoNumbers(double a, double b, double result)
 		{
