@@ -61,5 +61,19 @@ namespace Calculator
             Accumulator = Math.Pow(x,exp);
             return Accumulator;
         }
+			
+
+		public double Divide(double dividend, double divisor)
+		{
+			if (divisor == 0)
+			{
+				throw new DivideByZeroException("Du dividere med 0");
+			}
+			else
+			{
+				return dividend / divisor;
+			}
+
+		}
 	}
 }
