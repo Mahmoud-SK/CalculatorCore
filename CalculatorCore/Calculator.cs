@@ -4,7 +4,7 @@ namespace Calculator
 {
 	public class CalculatorClass
 	{
-		static void Main(string[] args)
+        static void Main(string[] args)
 		{
 			CalculatorClass calc = new CalculatorClass();
 
@@ -36,24 +36,30 @@ namespace Calculator
 			Console.WriteLine($"14 power 2 = {calc.Power(14, 2)}\n");
 		}
 
+		public double Accumulator { get; private set; }
+
 		public double Add(double a, double b)
-		{
-			return a + b;
+        {
+            Accumulator = a + b;
+            return Accumulator;
 		}
 
 		public double Substract(double a, double b)
 		{
-			return a - b;
+            Accumulator = a - b;
+			return Accumulator;
 		}
 
 		public double Multiply(double a, double b)
 		{
-			return a * b;
+            Accumulator = a * b;
+            return Accumulator;
 		}
 
 		public double Power(double x, double exp)
 		{
-			return Math.Pow(x, exp);
-		}
+            Accumulator = Math.Pow(x,exp);
+            return Accumulator;
+        }
 	}
 }

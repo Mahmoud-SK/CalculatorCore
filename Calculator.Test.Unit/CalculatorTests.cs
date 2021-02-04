@@ -51,6 +51,11 @@ namespace Calculator.Unit.Test
 			Assert.That(uut.Power(a, b), Is.EqualTo(result));
 		}
 
+		[Test]
+        public void ctor_AccumulatorInitialValue_ValueZero()
+        {
+			Assert.That(uut.Accumulator, Is.Zero);
+        }
 
 
 	}
