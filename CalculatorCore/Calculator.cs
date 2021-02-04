@@ -15,11 +15,11 @@ namespace Calculator
 			Console.WriteLine($"155 + 35 = {calc.Add(155, 35)}\n");
 
 
-			Console.WriteLine("Testing Substract - calc.Substract(x,x)");
-			Console.WriteLine($"8 - 2 = {calc.Substract(8, 2)}");
-			Console.WriteLine($"55 - 5 = {calc.Substract(55, 5)}");
-			Console.WriteLine($"25 - 86 = {calc.Substract(25, 86)}");
-			Console.WriteLine($"155 - 5 = {calc.Substract(155, 5)}\n");
+			Console.WriteLine("Testing Subtract - calc.Subtract(x,x)");
+			Console.WriteLine($"8 - 2 = {calc.Subtract(8, 2)}");
+			Console.WriteLine($"55 - 5 = {calc.Subtract(55, 5)}");
+			Console.WriteLine($"25 - 86 = {calc.Subtract(25, 86)}");
+			Console.WriteLine($"155 - 5 = {calc.Subtract(155, 5)}\n");
 
 
 			Console.WriteLine("Testing Multiply - calc.Multiply(x,x)");
@@ -44,7 +44,7 @@ namespace Calculator
             return Accumulator;
 		}
 
-		public double Substract(double a, double b)
+		public double Subtract(double a, double b)
 		{
             Accumulator = a - b;
 			return Accumulator;
@@ -67,12 +67,13 @@ namespace Calculator
 		{
 			if (divisor == 0)
 			{
-				throw new DivideByZeroException("Du dividere med 0");
+				throw new DivideByZeroException("Du dividerer med 0");
 			}
 			else
 			{
-				return dividend / divisor;
-			}
+				Accumulator = dividend / divisor;
+                return Accumulator;
+            }
 
 		}
 	}

@@ -1,3 +1,4 @@
+using System;
 using NUnit.Framework;
 
 namespace Calculator.Unit.Test
@@ -30,7 +31,7 @@ namespace Calculator.Unit.Test
 		[TestCase(-15, 5, -20)]
 		public void Substract_SubstractTwoNumbers(double a, double b, double result)
 		{
-			Assert.That(uut.Substract(a, b), Is.EqualTo(result));
+			Assert.That(uut.Subtract(a, b), Is.EqualTo(result));
 		}
 
 		[TestCase(-4, 2, -8)]
@@ -52,17 +53,56 @@ namespace Calculator.Unit.Test
 		}
 
 		[TestCase(4, 2, 2)]
-		[TestCase(5,0,0)]
-		public void Division_DivideTwoNumbers(double a, double b, double result)
+        public void Division_DivideTwoNumbers(double a, double b, double result)
 		{
 			Assert.That(uut.Divide(a, b), Is.EqualTo(result));
-		}
+        }
+
+        [TestCase(5, 0, 0)]
+		public void Division_DivideByZero(double a, double b, double result)
+        {
+            Assert.That(() => uut.Divide(a, b), Throws.TypeOf<DivideByZeroException>());
+        }
+
 		[Test]
         public void ctor_AccumulatorInitialValue_ValueZero()
         {
 			Assert.That(uut.Accumulator, Is.Zero);
         }
 
+		[Test]
+        public void add_AccumulatorTest_AccumulatorValue8()
+        {
+            uut.Add(4, 4);
+			Assert.That(uut.Accumulator, Is.EqualTo(8));
+        }
 
+        [Test]
+        public void subtract_AccumulatorTest_AccumulatorValue2()
+        {
+            uut.Subtract(5, 3);
+            Assert.That(uut.Accumulator, Is.EqualTo(2));
+        }
+
+        [Test]
+        public void multiply_AccumulatorTest_AccumulatorValue16()
+        {
+            uut.Multiply(4, 4);
+            Assert.That(uut.Accumulator, Is.EqualTo(16));
+        }
+
+        [Test]
+        public void Power_AccumulatorTest_AccumulatorValue8()
+        {
+            uut.Power(2, 3);
+            Assert.That(uut.Accumulator, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Divide_AccumulatorTest_AccumulatorValue5()
+        {
+            uut.Divide(10, 2);
+            Assert.That(uut.Accumulator, Is.EqualTo(5));
+        }
 	}
 }
