@@ -51,6 +51,12 @@ namespace Calculator.Unit.Test
 			Assert.That(uut.Power(a, b), Is.EqualTo(result));
 		}
 
+		[TestCase(4, 2, 2)]
+		[TestCase(5,0,0)]
+		public void Division_DivideTwoNumbers(double a, double b, double result)
+		{
+			Assert.That(uut.Divide(a, b), Is.EqualTo(result));
+		}
 
 
 	}
