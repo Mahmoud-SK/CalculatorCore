@@ -4,7 +4,7 @@ namespace Calculator
 {
 	public class CalculatorClass
 	{
-        static void Main(string[] args)
+		static void Main(string[] args)
 		{
 			CalculatorClass calc = new CalculatorClass();
 
@@ -39,28 +39,28 @@ namespace Calculator
 		public double Accumulator { get; private set; }
 
 		public double Add(double a, double b)
-        {
-            Accumulator = a + b;
-            return Accumulator;
+		{
+			Accumulator = a + b;
+			return Accumulator;
 		}
 
 		public double Subtract(double a, double b)
 		{
-            Accumulator = a - b;
+			Accumulator = a - b;
 			return Accumulator;
 		}
 
 		public double Multiply(double a, double b)
 		{
-            Accumulator = a * b;
-            return Accumulator;
+			Accumulator = a * b;
+			return Accumulator;
 		}
 
 		public double Power(double x, double exp)
 		{
-            Accumulator = Math.Pow(x,exp);
-            return Accumulator;
-        }
+			Accumulator = Math.Pow(x,exp);
+			return Accumulator;
+		}
 			
 
 		public double Divide(double dividend, double divisor)
@@ -72,44 +72,48 @@ namespace Calculator
 			else
 			{
 				Accumulator = dividend / divisor;
-                return Accumulator;
-            }
+				return Accumulator;
+			}
 
 		}
 
 		// Nye tilføjet funktioner 
-        public double Add(double addend)
-        {
-            Accumulator += addend;
-            return Accumulator;
-        }
+		public double Add(double addend)
+		{
+			Accumulator += addend;
+			return Accumulator;
+		}
 
-        public double Subtract(double subtractor)
-        {
-          
-            Accumulator -= subtractor;
-            return Accumulator;
-        }
+		public double Subtract(double subtractor)
+		{
+		  
+			Accumulator -= subtractor;
+			return Accumulator;
+		}
 
-        public double Multiply(double multiplier)
-        {
-            
-            Accumulator *= multiplier;
-            return Accumulator;
-        }
+		public double Multiply(double multiplier)
+		{
+			
+			Accumulator *= multiplier;
+			return Accumulator;
+		}
 
-        public double Divide(double divisor)
-        {
-            Accumulator /= divisor;
-            return Accumulator;
-        }
+		public double Divide(double divisor)
+		{
+			Accumulator /= divisor;
+			return Accumulator;
+		}
 
-        public double Power(double exponent)
-        {
-            Accumulator = Math.Pow(Accumulator,exponent);
-            return Accumulator;
-        }
+		public double Power(double exponent)
+		{
+			Accumulator = Math.Pow(Accumulator,exponent);
+			return Accumulator;
+		}
 
-
+		//Ny clear-funktion
+		public void Clear()
+		{
+			Accumulator = 0;
+		}
 	}
 }
