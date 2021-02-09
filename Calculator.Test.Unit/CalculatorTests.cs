@@ -104,5 +104,48 @@ namespace Calculator.Unit.Test
             uut.Divide(10, 2);
             Assert.That(uut.Accumulator, Is.EqualTo(5));
         }
-	}
+
+
+        //Nye test på de nye funktioner 
+       
+        [Test]
+        public void add2_AccumulatorTest_AccumulatorValue4()
+        {
+            uut.Add(4);
+            Assert.That(uut.Accumulator, Is.EqualTo(4));
+        }
+
+        [Test]
+        public void subtract2_AccumulatorTest_AccumulatorValue_minu5()
+        {
+            uut.Subtract(5);
+            Assert.That(uut.Accumulator, Is.EqualTo(-5));
+        }
+
+        [Test]
+        public void multiply2_AccumulatorTest_AccumulatorValue24()
+        {
+            uut.Add(6);
+            uut.Multiply(4);
+            Assert.That(uut.Accumulator, Is.EqualTo(24));
+        }
+
+        [Test]
+        public void Power2_AccumulatorTest_AccumulatorValue8()
+        {
+            uut.Add(2);
+            uut.Power(3);
+            Assert.That(uut.Accumulator, Is.EqualTo(8));
+        }
+
+        [Test]
+        public void Divide2_AccumulatorTest_AccumulatorValue5()
+        {
+            uut.Add(10);
+            uut.Divide(2);
+            Assert.That(uut.Accumulator, Is.EqualTo(5));
+        }
+       
+
+    }
 }
