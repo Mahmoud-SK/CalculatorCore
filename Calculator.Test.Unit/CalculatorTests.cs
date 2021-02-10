@@ -59,7 +59,7 @@ namespace Calculator.Unit.Test
 		}
 
 		[TestCase(5, 0, 0)]
-		public void Division_DivideByZero(double a, double b, double result)
+		public void Division_DivideByZero_ExceptionTest(double a, double b, double result)
 		{
 			Assert.That(() => uut.Divide(a, b), Throws.TypeOf<DivideByZeroException>());
 		}
@@ -156,10 +156,9 @@ namespace Calculator.Unit.Test
 		}
 	   
 		[Test]
-		public void Power_Satisfaction()
+		public void Power_NegativeRootDecimalExp_ExceptionTest()
 		{
-			uut.Power(-5, 4.5);
-			Assert.That(uut.Accumulator, Is.EqualTo(1));
+			Assert.That(() => uut.Power(-4, 5.5), Throws.TypeOf<ArgumentException>());
 		}
 
 	}

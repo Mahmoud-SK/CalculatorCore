@@ -58,8 +58,15 @@ namespace Calculator
 
 		public double Power(double x, double exp)
 		{
-			Accumulator = Math.Pow(x,exp);
-			return Accumulator;
+			if (x < 0 && (exp % 1.0) != 0)
+			{
+				throw new ArgumentException($"Det negative tal: {x} kan ikke opløftes i decimaltallet: {exp} ");
+			}
+			else
+			{
+				Accumulator = Math.Pow(x, exp);
+				return Accumulator;
+			}
 		}
 			
 
