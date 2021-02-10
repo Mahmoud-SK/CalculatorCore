@@ -107,23 +107,25 @@ namespace Calculator.Unit.Test
 
 
 		//Nye test på de nye funktioner 
-	   
-		[Test]
-		public void add2_AccumulatorTest_AccumulatorValue4()
+
+		[TestCase(5,5)]
+		[TestCase(10, 10)]
+		[TestCase(-15, -15)]
+		public void Add_SingleParameterTest_AccumulatorResult(double a, double result)
 		{
-			uut.Add(4);
-			Assert.That(uut.Accumulator, Is.EqualTo(4));
+			uut.Add(a);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
 		[Test]
-		public void subtract2_AccumulatorTest_AccumulatorValue_minu5()
+		public void Substract_SingleParameterTest_AccumulatorValue_minu5()
 		{
 			uut.Subtract(5);
 			Assert.That(uut.Accumulator, Is.EqualTo(-5));
 		}
 
 		[Test]
-		public void multiply2_AccumulatorTest_AccumulatorValue24()
+		public void Multiply_SingleParameterTest_AccumulatorValue24()
 		{
 			uut.Add(6);
 			uut.Multiply(4);
@@ -131,7 +133,7 @@ namespace Calculator.Unit.Test
 		}
 
 		[Test]
-		public void Power2_AccumulatorTest_AccumulatorValue8()
+		public void Power_SingleParameterTest_AccumulatorValue8()
 		{
 			uut.Add(2);
 			uut.Power(3);
@@ -139,7 +141,7 @@ namespace Calculator.Unit.Test
 		}
 
 		[Test]
-		public void Divide2_AccumulatorTest_AccumulatorValue5()
+		public void Divide_SingleParameterTest_AccumulatorValue5()
 		{
 			uut.Add(10);
 			uut.Divide(2);
