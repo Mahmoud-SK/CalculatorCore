@@ -101,6 +101,7 @@ namespace Calculator.Unit.Test
 		[Test]
 		public void Divide_AccumulatorTest_AccumulatorValue5()
 		{
+			//Tom Ændring
 			uut.Divide(10, 2);
 			Assert.That(uut.Accumulator, Is.EqualTo(5));
 		}
