@@ -29,7 +29,7 @@ namespace Calculator.Unit.Test
 		[TestCase(55, -25, 80)]
 		[TestCase(-5, 5, -10)]
 		[TestCase(-15, 5, -20)]
-		public void Substract_SubstractTwoNumbers(double a, double b, double result)
+		public void Subtract_SubtractTwoNumbers(double a, double b, double result)
 		{
 			Assert.That(uut.Subtract(a, b), Is.EqualTo(result));
 		}
@@ -59,7 +59,7 @@ namespace Calculator.Unit.Test
 		}
 
 		[TestCase(5, 0, 0)]
-		public void Division_DivideByZero(double a, double b, double result)
+		public void Division_DivideByZero_ExceptionTest(double a, double b, double result)
 		{
 			Assert.That(() => uut.Divide(a, b), Throws.TypeOf<DivideByZeroException>());
 		}
@@ -107,43 +107,53 @@ namespace Calculator.Unit.Test
 
 
 		//Nye test på de nye funktioner 
-	   
-		[Test]
-		public void add2_AccumulatorTest_AccumulatorValue4()
+
+		[TestCase(5,5)]
+		[TestCase(10.2, 10.2)]
+		[TestCase(-15, -15)]
+		public void Add_SingleParameterTest_AccumulatorResult(double a, double result)
 		{
-			uut.Add(4);
-			Assert.That(uut.Accumulator, Is.EqualTo(4));
+			uut.Add(a);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
-		[Test]
-		public void subtract2_AccumulatorTest_AccumulatorValue_minu5()
+        [TestCase(5, -5)]
+        [TestCase(10.2, -10.2)]
+        [TestCase(-15, 15)]
+		public void Subtract_SingleParameterTest_AccumulatorValue(double a, double result)
 		{
-			uut.Subtract(5);
-			Assert.That(uut.Accumulator, Is.EqualTo(-5));
+			uut.Subtract(a);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
-		[Test]
-		public void multiply2_AccumulatorTest_AccumulatorValue24()
+        [TestCase(2, 5, 10)]
+        [TestCase(2, 10.2, 20.4)]
+        [TestCase(2, -15, -30)]
+		public void Multiply_SingleParameterTest_AccumulatorValue24(double a, double b, double result)
 		{
-			uut.Add(6);
-			uut.Multiply(4);
-			Assert.That(uut.Accumulator, Is.EqualTo(24));
+			uut.Add(a);
+			uut.Multiply(b);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
-		[Test]
-		public void Power2_AccumulatorTest_AccumulatorValue8()
+        [TestCase(2, 5, 32)]
+        [TestCase(2, 10, 1024)]
+        [TestCase(2, -1, 0.5)]
+		public void Power_SingleParameterTest_AccumulatorValue8(double a, double b, double result)
 		{
-			uut.Add(2);
-			uut.Power(3);
-			Assert.That(uut.Accumulator, Is.EqualTo(8));
+			uut.Add(a);
+			uut.Power(b);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
-		[Test]
-		public void Divide2_AccumulatorTest_AccumulatorValue5()
+        [TestCase(10,5, 2)]
+        [TestCase(10, 10, 1)]
+        [TestCase(10, -10, -1)]
+		public void Divide_SingleParameterTest_AccumulatorValue5(double a, double b, double result)
 		{
-			uut.Add(10);
-			uut.Divide(2);
-			Assert.That(uut.Accumulator, Is.EqualTo(5));
+			uut.Add(a);
+			uut.Divide(b);
+			Assert.That(uut.Accumulator, Is.EqualTo(result));
 		}
 
 		[Test]
@@ -156,10 +166,9 @@ namespace Calculator.Unit.Test
 		}
 	   
 		[Test]
-		public void Power_Satisfaction()
+		public void Power_NegativeRootDecimalExp_ExceptionTest()
 		{
-			uut.Power(-5, 4.5);
-			Assert.That(uut.Accumulator, Is.EqualTo(1));
+			Assert.That(() => uut.Power(-4, 5.5), Throws.TypeOf<ArgumentException>());
 		}
 
 	}
